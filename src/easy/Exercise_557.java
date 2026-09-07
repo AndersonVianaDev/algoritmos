@@ -2,6 +2,19 @@ package easy;
 
 public class Exercise_557 {
 
+    // Solução utilizando os métodos do java
+    public static String reverseWordsJava(String word) {
+        String[] words = word.split(" ");
+        String result = "";
+        for(String s : words) {
+            String wordInverted = new StringBuilder(s).reverse().toString();
+            result += wordInverted + " ";
+        }
+
+        return result.trim();
+    }
+
+    // Solução com 2 ponteiros
     public static String reverseWords(String word) {
         int left = 0;
         int right = 0;
@@ -28,7 +41,7 @@ public class Exercise_557 {
     }
 
     public static void main(String[] args) {
-        String inverted = reverseWords("Let's take LeetCode contest");
+        String inverted = reverseWordsJava("Let's take LeetCode contest");
 
         System.out.println(inverted);
     }
