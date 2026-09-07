@@ -8,12 +8,15 @@ public class Exercise_557 {
 
         String resp = "";
         while (right < word.length()) {
-            if(!" ".equalsIgnoreCase(String.valueOf(word.charAt(right))) && right+1 != word.length()) {
+            boolean isSpace = word.charAt(right) == ' ';
+
+            if(!isSpace && right+1 != word.length()) {
                 right+=1;
                 continue;
             }
 
-            String aux = new StringBuilder(word.substring(left, right+1)).reverse().toString();
+            int end = isSpace ? right : right+1;
+            String aux = new StringBuilder(word.substring(left, end)).reverse().toString();
 
             right +=1;
             left = right;
@@ -25,7 +28,7 @@ public class Exercise_557 {
     }
 
     public static void main(String[] args) {
-        String inverted = reverseWords("estou sozinho");
+        String inverted = reverseWords("Let's take LeetCode contest");
 
         System.out.println(inverted);
     }
